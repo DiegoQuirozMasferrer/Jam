@@ -27,13 +27,13 @@ public class FsmState : MonoBehaviour
         Debug.Log(CurrentState + "->" + nextState);
         CurrentState = nextState;
     }
-    IEnumerator Wander ()
+    /*IEnumerator Wander()
     {
         while (CurrentState == state.Wander)
         {
 
         }
-    }
+    }*/
 
 
     // Start is called before the first frame update

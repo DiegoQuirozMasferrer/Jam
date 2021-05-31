@@ -22,7 +22,7 @@ public class movientoplayer : MonoBehaviour
     void Update()
     {
         input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
+        //input.y = Input.GetAxis("Vertical");
     }
 
     private void FixedUpdate()
