@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             gameObject.transform.localScale = new Vector3(0.07223215f, 0.07223215f);
-            Trampa();
+           
             Atras();
             Debug.Log("se achico");
             alfrente = false;
@@ -82,6 +82,8 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.localScale = new Vector3(0.1223215f, 0.1223215f);
             Legal();
             alfrente = true;
+            rb.velocity = Vector2.up * jumpForce;
+
         }
     }
 
@@ -116,13 +118,13 @@ public class PlayerController : MonoBehaviour
         }
         foreach (GameObject go in edi)
         {
-            Debug.Log("se activo el collider para arriba");
-            go.GetComponent<BoxCollider2D>().isTrigger = false;
-            
+            Debug.Log("se activo el collider");
+            go.GetComponent<BoxCollider2D>().enabled = true;
         }
-        foreach (GameObject go in edificiosDelanteros)
+        foreach (GameObject po in edificiosDelanteros)
         {
-            go.GetComponent<BoxCollider2D>().isTrigger = true;
+            po.GetComponent<BoxCollider2D>().enabled = false;
+
         }
 
 
@@ -133,14 +135,11 @@ public class PlayerController : MonoBehaviour
         GameObject[] edificiosTraceros = GameObject.FindGameObjectsWithTag("Atras");
         foreach (GameObject go in edi)
         {
-
-            Debug.Log("se activo el collider para arriba");
-            go.GetComponent<BoxCollider2D>().isTrigger = false;
-
+            go.GetComponent<BoxCollider2D>().enabled = true;
         }
         foreach (GameObject go in edificiosTraceros)
         {
-            go.GetComponent<BoxCollider2D>().isTrigger = true;
+            go.GetComponent<BoxCollider2D>().enabled = false;
 
         }
 
