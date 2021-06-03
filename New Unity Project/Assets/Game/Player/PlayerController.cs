@@ -35,22 +35,14 @@ public class PlayerController : MonoBehaviour
         {
             extraJump = extraJumpValue;
         }
-
-<<<<<<< Updated upstream
         if (Input.GetKeyDown(KeyCode.Space) && extraJump > 0)
-=======
-        if (Input.GetKey(KeyCode.Space) && extraJump > 0)
->>>>>>> Stashed changes
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJump--;
             
         }
-<<<<<<< Updated upstream
-        else if (Input.GetKeyDown(KeyCode.Space) && extraJump == 0 && isGrounded) 
-=======
         else if (Input.GetKey(KeyCode.Space) && extraJump == 0 && isGrounded) 
->>>>>>> Stashed changes
+
         {
             rb.velocity = Vector2.up * jumpForce; 
         }
