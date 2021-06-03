@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewIdleStateData", menuName = "Data/State Data/Idle State")]
 public class D_IdleState : ScriptableObject
 {
-    public float minIdleTime = 2f;
-    public float maxIdleTime = 4f;
+    public float minIdleTime = 1f;
+    public float maxIdleTime = 2f;
 }

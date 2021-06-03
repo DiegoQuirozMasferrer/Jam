@@ -4,19 +4,26 @@
 
     protected bool isDetectingWall;
     protected bool isDetectingLedge;
+    protected bool isPlayerInMinAgroRange;
 
     public MoveState(Entity entity, FiniteStateMachine stateMachine, string aimBoolName, D_MoveState stateData) : base(entity, stateMachine, aimBoolName)
     {
         this.stateData = stateData;
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        isDetectingLedge = entity.CheckLedge();
+        isDetectingWall = entity.CheckWall();
+        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+    }
+
     public override void Enter()
     {
         base.Enter();
         entity.SetVelocity(stateData.movementSpeed);
-
-        isDetectingLedge = entity.CheckLedge();
-        isDetectingWall = entity.CheckWall();
     }
 
     public override void Exit()
@@ -32,8 +39,5 @@
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
-        isDetectingLedge = entity.CheckLedge();
-        isDetectingWall = entity.CheckWall();
     }
 }

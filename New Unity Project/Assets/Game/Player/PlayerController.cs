@@ -34,12 +34,12 @@ public class PlayerController : MonoBehaviour
             extraJump = extraJumpValue;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && extraJump > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && extraJump > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJump--;
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && extraJump == 0 && isGrounded) 
+        else if (Input.GetKeyDown(KeyCode.Space) && extraJump == 0 && isGrounded) 
         {
             rb.velocity = Vector2.up * jumpForce; 
         }
