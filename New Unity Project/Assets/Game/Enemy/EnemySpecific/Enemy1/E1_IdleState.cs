@@ -13,6 +13,7 @@ public class E1_IdleState : IdleState
     public override void Enter()
     {
         base.Enter();
+        
     }
 
     public override void Exit()
@@ -31,6 +32,7 @@ public class E1_IdleState : IdleState
         else if (isIdleTimeOver)
         {
             stateMachine.ChangeState(enemy.moveState);
+           
         }
     }
 
