@@ -33,6 +33,7 @@ public class E1_MoveState : MoveState
         {
             enemy.idleState.SetFlipAfterIdle(true);
             stateMachine.ChangeState(enemy.idleState);
+
         }
 
     }
