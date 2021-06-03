@@ -11,6 +11,7 @@ public class movientoplayer : MonoBehaviour
     Vector2 input;
     public float speed;
     private float position;
+    Alejarce ale;
 
 
     void Start()
@@ -34,12 +35,14 @@ public class movientoplayer : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(1.2f, 1.4f);
             Trampa();
+            ale.Atras();
             Debug.Log("se achico");
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
             gameObject.transform.localScale = new Vector3(3.18f, 2.6625f);
             Legal();
+            ale.Delante();
         }
 
     }
@@ -48,11 +51,14 @@ public class movientoplayer : MonoBehaviour
         gameObject.transform.position = new Vector2( gameObject.transform.position.x ,1.674391f);
         return true;
 
+
+
     }    
     private void Legal()
     {
         gameObject.transform.position = new Vector2(gameObject.transform.position.x, -3.15f);
     }
+
 }
 
     // Update is called once per frame
