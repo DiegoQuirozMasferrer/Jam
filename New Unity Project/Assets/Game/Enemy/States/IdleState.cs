@@ -26,7 +26,7 @@ public class IdleState : State
     }
 
     public override void Exit()
-    {
+    { 
         base.Exit();
 
         if (flipAfterIdle)
@@ -39,7 +39,7 @@ public class IdleState : State
     {
         base.LogicUpdate();
 
-        if (Time.time > -startTime + idleTime)
+        if (Time.time >= startTime + idleTime)
         {
             isIdleTimeOver = true;
         }
