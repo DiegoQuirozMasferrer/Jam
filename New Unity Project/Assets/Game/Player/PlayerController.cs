@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,7 +22,9 @@ public class PlayerController : MonoBehaviour
 
     private int extraJump;
     public int extraJumpValue;
-    Alejarce ale;
+
+    public Transform spawn;
+    public string sceneName;
 
     private void Start()
     {
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce; 
         }
+        Respawn();
     }
 
 
@@ -68,23 +72,30 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
+
+            if (!facingRight)
+            {
+                Flip();
+            }
+
             gameObject.transform.localScale = new Vector3(0.07223215f, 0.07223215f);
-           
+
+            Trampa();
             Atras();
             Debug.Log("se achico");
             alfrente = false;
-            rb.velocity = Vector2.up * jumpForce;
             
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
+            Trampa();
             Delante();
             gameObject.transform.localScale = new Vector3(0.1223215f, 0.1223215f);
             Legal();
             alfrente = true;
-            rb.velocity = Vector2.up * jumpForce;
 
         }
+
     }
 
     void Flip() 
@@ -142,6 +153,22 @@ public class PlayerController : MonoBehaviour
             go.GetComponent<BoxCollider2D>().enabled = false;
 
         }
+    }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Goal")) 
+        {
+            Debug.Log("BRUH");
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
+    public void Respawn() 
+    {
+        if (this.transform.position.y <= -7f) 
+        {
+            this.rb.position = spawn.position;
+        }
     }
 }

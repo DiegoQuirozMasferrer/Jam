@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Atras
   - Frente
+  - Enemy
+  - Goal
   layers:
   - Default
   - TransparentFX
