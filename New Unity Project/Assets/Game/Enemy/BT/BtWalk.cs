@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class BtWalk : Bnode
 {
     protected Vector3 NextDestination { get; set; }
-    public float speed =0.8f;
+    public float speed =1.0f;
     public BtWalk(BehaviorTree t) : base(t)
     {
         NextDestination = Vector3.zero;

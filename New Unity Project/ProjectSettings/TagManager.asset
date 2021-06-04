@@ -8,6 +8,7 @@ TagManager:
   - Frente
   - Enemy
   - Goal
+  - Enemigo2
   layers:
   - Default
   - TransparentFX

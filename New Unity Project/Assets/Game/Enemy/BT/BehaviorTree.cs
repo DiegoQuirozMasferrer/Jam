@@ -11,6 +11,9 @@ public class BehaviorTree : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     public Transform playerCheck;
+    public float minAgroDistance = 1f;
+    public float maxAgroDistance = 2f;
+    public LayerMask whatIsPlayer;
 
     public Dictionary<string, object> Blackboard { get; set; }
     public Bnode Root
@@ -24,11 +27,11 @@ public class BehaviorTree : MonoBehaviour
     void Start()
     {
         Blackboard = new Dictionary<string, object>();
-        Blackboard.Add("WorldBounds", new Rect(0, 0, 5, 5));
+        Blackboard.Add("WorldBounds", new Rect(0, 0, 100, 1));
 
 
         startBehavior = false;
-        mRoot = new BtReapeter(this, new BtSequencer(this, new Bnode[] { new BtWalk(this) }));
+        mRoot = new BtReapeter(this, new BtSequencer(this, new Bnode[] { new BtWalk(this), new Agrro(this) }));
     }
 
     // Update is called once per frame
