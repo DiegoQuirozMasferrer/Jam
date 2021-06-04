@@ -8,6 +8,9 @@ public class BehaviorTree : MonoBehaviour
     private Bnode mRoot;
     private bool startBehavior;
     private Coroutine behavior;
+    private Rigidbody2D rb;
+    [SerializeField]
+    public Transform playerCheck;
 
     public Dictionary<string, object> Blackboard { get; set; }
     public Bnode Root
@@ -25,7 +28,7 @@ public class BehaviorTree : MonoBehaviour
 
 
         startBehavior = false;
-        mRoot = new Bnode(this);
+        mRoot = new BtReapeter(this, new BtSequencer(this, new Bnode[] { new BtWalk(this) }));
     }
 
     // Update is called once per frame
