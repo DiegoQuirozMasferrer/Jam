@@ -193,7 +193,16 @@ public class PlayerController : MonoBehaviour
             Debug.Log("BRUH");
             SceneManager.LoadScene(sceneName);
         }
-        
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("BRUH");
+            SceneManager.LoadScene(sceneName);
+        }
+        if (collision.gameObject.CompareTag("Enemigo2"))
+        {
+            Debug.Log("BRUH");
+            SceneManager.LoadScene(sceneName);
+        }
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
